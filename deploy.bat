@@ -3,8 +3,8 @@ echo 🚀 Deploying Claim-Checker System
 echo ==================================
 
 REM Default values
-set GITHUB_REPOSITORY_OWNER=%GITHUB_REPOSITORY_OWNER%
-if "%GITHUB_REPOSITORY_OWNER%"=="" set GITHUB_REPOSITORY_OWNER=lirov
+set GITHUB_REPOSITORY=%GITHUB_REPOSITORY%
+if "%GITHUB_REPOSITORY%"=="" set GITHUB_REPOSITORY=lirov/claim_checker
 
 set JWT_SECRET=%JWT_SECRET%
 if "%JWT_SECRET%"=="" set JWT_SECRET=change-me-in-production
@@ -26,10 +26,10 @@ if %errorlevel% neq 0 (
 )
 
 echo ✅ Docker and Docker Compose are available
-echo 📦 Using Docker images from: ghcr.io/%GITHUB_REPOSITORY_OWNER%
+echo 📦 Using Docker images from: ghcr.io/%GITHUB_REPOSITORY%
 
 REM Create .env file for production
-echo GITHUB_REPOSITORY_OWNER=%GITHUB_REPOSITORY_OWNER% > .env
+echo GITHUB_REPOSITORY=%GITHUB_REPOSITORY% > .env
 echo JWT_SECRET=%JWT_SECRET% >> .env
 
 echo 📝 Created .env file with configuration

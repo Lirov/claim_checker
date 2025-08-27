@@ -4,7 +4,7 @@ echo "🚀 Deploying Claim-Checker System"
 echo "=================================="
 
 # Default values
-GITHUB_REPOSITORY_OWNER=${GITHUB_REPOSITORY_OWNER:-"lirov"}
+GITHUB_REPOSITORY=${GITHUB_REPOSITORY:-"lirov/claim_checker"}
 JWT_SECRET=${JWT_SECRET:-"change-me-in-production"}
 
 # Check if Docker is running
@@ -20,11 +20,11 @@ if ! command -v docker-compose &> /dev/null; then
 fi
 
 echo "✅ Docker and Docker Compose are available"
-echo "📦 Using Docker images from: ghcr.io/$GITHUB_REPOSITORY_OWNER"
+echo "📦 Using Docker images from: ghcr.io/$GITHUB_REPOSITORY"
 
 # Create .env file for production
 cat > .env << EOF
-GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER
+GITHUB_REPOSITORY=$GITHUB_REPOSITORY
 JWT_SECRET=$JWT_SECRET
 EOF
 
