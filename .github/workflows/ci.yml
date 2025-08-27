@@ -69,17 +69,20 @@ jobs:
     
     - name: Build and push Docker images
       run: |
+        # Convert repository name to lowercase for Docker compatibility
+        REPO_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+        
         # Build and push gateway
-        docker build -t ghcr.io/${{ github.repository_owner }}/claim-checker-gateway:latest ./gateway
-        docker push ghcr.io/${{ github.repository_owner }}/claim-checker-gateway:latest
+        docker build -t ghcr.io/lirov/claim-checker-gateway:latest ./gateway
+        docker push ghcr.io/lirov/claim-checker-gateway:latest
         
         # Build and push verifier
-        docker build -t ghcr.io/${{ github.repository_owner }}/claim-checker-verifier:latest ./verifier
-        docker push ghcr.io/${{ github.repository_owner }}/claim-checker-verifier:latest
+        docker build -t ghcr.io/lirov/claim-checker-verifier:latest ./verifier
+        docker push ghcr.io/lirov/claim-checker-verifier:latest
         
         # Build and push evidence
-        docker build -t ghcr.io/${{ github.repository_owner }}/claim-checker-evidence:latest ./evidence
-        docker push ghcr.io/${{ github.repository_owner }}/claim-checker-evidence:latest
+        docker build -t ghcr.io/lirov/claim-checker-evidence:latest ./evidence
+        docker push ghcr.io/lirov/claim-checker-evidence:latest
         
     - name: Test Docker Compose
       run: |

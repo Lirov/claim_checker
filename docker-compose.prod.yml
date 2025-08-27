@@ -19,7 +19,7 @@ services:
       retries: 5
 
   gateway:
-    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-yourusername}/claim-checker-gateway:latest
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-lirov}/claim-checker-gateway:latest
     environment:
       DATABASE_URL: postgresql+psycopg://app:app@db:5432/claims
       JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
 
   verifier:
-    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-yourusername}/claim-checker-verifier:latest
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-lirov}/claim-checker-verifier:latest
     environment:
       EVIDENCE_URL: http://evidence:8000
       DATABASE_URL: postgresql+psycopg://app:app@db:5432/claims
@@ -46,7 +46,7 @@ services:
     restart: unless-stopped
 
   evidence:
-    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-yourusername}/claim-checker-evidence:latest
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-lirov}/claim-checker-evidence:latest
     restart: unless-stopped
 
 volumes:

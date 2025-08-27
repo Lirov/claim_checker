@@ -20,13 +20,13 @@ A microservices-based system for detecting misinformation by analyzing claims ag
 #### Option 1: Production Deployment (Recommended)
 Use the published Docker images for easy deployment on any machine:
 
-1. **Set your GitHub repository owner:**
+1. **Set your GitHub repository owner (optional - defaults to 'lirov'):**
    ```bash
    # Linux/Mac
-   export GITHUB_REPOSITORY_OWNER=your-github-username
+   export GITHUB_REPOSITORY_OWNER=lirov
    
    # Windows
-   set GITHUB_REPOSITORY_OWNER=your-github-username
+   set GITHUB_REPOSITORY_OWNER=lirov
    ```
 
 2. **Deploy using the deployment script:**
@@ -145,7 +145,7 @@ The CI/CD pipeline automatically builds and pushes Docker images to GitHub Conta
 
 2. **Deploy on any machine** using the deployment scripts with your GitHub username
 
-3. **View your images** at `https://github.com/yourusername/claim_checker/packages`
+3. **View your images** at `https://github.com/lirov/claim_checker/packages`
 
 ## Testing
 

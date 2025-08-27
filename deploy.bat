@@ -4,7 +4,7 @@ echo ==================================
 
 REM Default values
 set GITHUB_REPOSITORY_OWNER=%GITHUB_REPOSITORY_OWNER%
-if "%GITHUB_REPOSITORY_OWNER%"=="" set GITHUB_REPOSITORY_OWNER=yourusername
+if "%GITHUB_REPOSITORY_OWNER%"=="" set GITHUB_REPOSITORY_OWNER=lirov
 
 set JWT_SECRET=%JWT_SECRET%
 if "%JWT_SECRET%"=="" set JWT_SECRET=change-me-in-production

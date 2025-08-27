@@ -4,7 +4,7 @@ echo "🚀 Deploying Claim-Checker System"
 echo "=================================="
 
 # Default values
-GITHUB_REPOSITORY_OWNER=${GITHUB_REPOSITORY_OWNER:-"yourusername"}
+GITHUB_REPOSITORY_OWNER=${GITHUB_REPOSITORY_OWNER:-"lirov"}
 JWT_SECRET=${JWT_SECRET:-"change-me-in-production"}
 
 # Check if Docker is running
