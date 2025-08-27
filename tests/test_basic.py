@@ -1,13 +1,12 @@
 import pytest
 import httpx
 import asyncio
-from typing import AsyncGenerator
 
 
 @pytest.fixture
 async def client():
-    async with httpx.AsyncClient(base_url="http://localhost:8080") as client:
-        yield client
+    async with httpx.AsyncClient(base_url="http://localhost:8080") as ac:
+        yield ac
 
 
 @pytest.mark.asyncio
