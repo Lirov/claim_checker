@@ -17,6 +17,18 @@ A microservices-based system for detecting misinformation by analyzing claims ag
 
 ### Running the Application
 
+#### Option 1: Quick Start (Recommended)
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd claim_checker
+```
+
+2. Start all services using the startup script:
+   - **Windows**: Double-click `start.bat` or run `start.bat` in Command Prompt
+   - **Linux/Mac**: Run `./start.sh` in terminal
+
+#### Option 2: Manual Start
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
@@ -25,10 +37,19 @@ cd claim_checker
 
 2. Start all services:
 ```bash
-docker compose up --build
+docker compose up --build -d
 ```
 
-3. Test the API:
+3. Wait for services to start (about 30-60 seconds)
+
+#### Testing the System
+
+1. **Test with the local test script:**
+```bash
+python test_local.py
+```
+
+2. **Test the API manually:**
 ```bash
 # Login to get JWT token
 curl -s http://localhost:8080/auth/login \
@@ -45,6 +66,10 @@ curl -s http://localhost:8080/claims/verify \
 curl -s http://localhost:8080/claims/<uuid> \
   -H "Authorization: Bearer $(cat token.txt)" | jq
 ```
+
+3. **View API Documentation:**
+   - Gateway API: http://localhost:8080/docs
+   - Evidence API: http://localhost:8000/docs
 
 ## API Endpoints
 
