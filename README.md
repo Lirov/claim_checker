@@ -17,7 +17,23 @@ A microservices-based system for detecting misinformation by analyzing claims ag
 
 ### Running the Application
 
-#### Option 1: Quick Start (Recommended)
+#### Option 1: Production Deployment (Recommended)
+Use the published Docker images for easy deployment on any machine:
+
+1. **Set your Docker Hub username:**
+   ```bash
+   # Linux/Mac
+   export DOCKER_USERNAME=your-dockerhub-username
+   
+   # Windows
+   set DOCKER_USERNAME=your-dockerhub-username
+   ```
+
+2. **Deploy using the deployment script:**
+   - **Windows**: Double-click `deploy.bat` or run `deploy.bat` in Command Prompt
+   - **Linux/Mac**: Run `./deploy.sh` in terminal
+
+#### Option 2: Development Setup
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
@@ -28,7 +44,7 @@ cd claim_checker
    - **Windows**: Double-click `start.bat` or run `start.bat` in Command Prompt
    - **Linux/Mac**: Run `./start.sh` in terminal
 
-#### Option 2: Manual Start
+#### Option 3: Manual Start
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
@@ -118,6 +134,20 @@ DATABASE_URL=postgresql+psycopg://app:app@db:5432/claims
 VERIFIER_URL=http://verifier:8000
 EVIDENCE_URL=http://evidence:8000
 ```
+
+## Docker Hub Setup
+
+To use the production deployment, you need to:
+
+1. **Create a Docker Hub account** at [hub.docker.com](https://hub.docker.com)
+
+2. **Add GitHub Secrets** (in your GitHub repository settings):
+   - `DOCKER_USERNAME`: Your Docker Hub username
+   - `DOCKER_PASSWORD`: Your Docker Hub password or access token
+
+3. **Push to GitHub** - The CI/CD pipeline will automatically build and push Docker images to your Docker Hub account
+
+4. **Deploy on any machine** using the deployment scripts with your Docker Hub username
 
 ## Testing
 
