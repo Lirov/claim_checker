@@ -20,18 +20,20 @@ A microservices-based system for detecting misinformation by analyzing claims ag
 #### Option 1: Production Deployment (Recommended)
 Use the published Docker images for easy deployment on any machine:
 
-1. **Set your Docker Hub username:**
+1. **Set your GitHub repository owner:**
    ```bash
    # Linux/Mac
-   export DOCKER_USERNAME=your-dockerhub-username
+   export GITHUB_REPOSITORY_OWNER=your-github-username
    
    # Windows
-   set DOCKER_USERNAME=your-dockerhub-username
+   set GITHUB_REPOSITORY_OWNER=your-github-username
    ```
 
 2. **Deploy using the deployment script:**
    - **Windows**: Double-click `deploy.bat` or run `deploy.bat` in Command Prompt
    - **Linux/Mac**: Run `./deploy.sh` in terminal
+
+**Note**: The images will be automatically built and pushed to GitHub Container Registry (GHCR) when you push to the main branch.
 
 #### Option 2: Development Setup
 1. Clone the repository:
@@ -135,19 +137,15 @@ VERIFIER_URL=http://verifier:8000
 EVIDENCE_URL=http://evidence:8000
 ```
 
-## Docker Hub Setup
+## GitHub Container Registry Setup
 
-To use the production deployment, you need to:
+The CI/CD pipeline automatically builds and pushes Docker images to GitHub Container Registry (GHCR). No additional setup is required!
 
-1. **Create a Docker Hub account** at [hub.docker.com](https://hub.docker.com)
+1. **Push to GitHub** - The CI/CD pipeline will automatically build and push Docker images to GHCR
 
-2. **Add GitHub Secrets** (in your GitHub repository settings):
-   - `DOCKER_USERNAME`: Your Docker Hub username
-   - `DOCKER_PASSWORD`: Your Docker Hub password or access token
+2. **Deploy on any machine** using the deployment scripts with your GitHub username
 
-3. **Push to GitHub** - The CI/CD pipeline will automatically build and push Docker images to your Docker Hub account
-
-4. **Deploy on any machine** using the deployment scripts with your Docker Hub username
+3. **View your images** at `https://github.com/yourusername/claim_checker/packages`
 
 ## Testing
 
